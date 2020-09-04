@@ -16,14 +16,8 @@ if __name__ == "__main__":
 
     reference: Dict[long, str] = {3: "Fizz", 5: "Buzz"}
     print(
-        *[
-            max(
-                str(num),
-                "".join(
-                    reference.get(prime, "") for prime in primefactors(num)
-                ),
-            )
+        "\n".join(
+            "".join(reference.get(prime, "") for prime in primefactors(num)) or str(num)
             for num in range(1, max_value + 1)
-        ],
-        sep="\n",
+        )
     )

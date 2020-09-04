@@ -5,7 +5,7 @@ from sympy.ntheory import is_palindromic
 
 print(__file__, __name__, str(__package__))
 
-from . import FULL_INTEGER_CLASS, is_integer
+from .no_idea import FULL_INTEGER_CLASS, is_integer
 
 
 def is_palindrome(
