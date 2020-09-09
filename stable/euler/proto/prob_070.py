@@ -1,19 +1,25 @@
-from time import time
+from typing import List
 
-from sympy import totient, isprime
+from sympy import totient
+from sympy.ntheory import isprime, digits
 
 if __name__ == "__main__":
-    start = time()
+
+    def digit_list(dl_number: int) -> List[int]:
+        return digits(dl_number)[1:]
+
+    def final(testee: int) -> float:
+        return testee / totient(testee)
+
     print(
         min(
             (
-                (candidate / euler_func, candidate)
-                for candidate in range(1 * 10 ** 5 - 1, 20, -1)
-                if not isprime(candidate)
-                and candidate % 100
-                and sorted(str(candidate))
-                == sorted(str(euler_func := totient(candidate)))
+                candidate
+                for candidate in reversed(range(4, int(1e7)))
+                if (dlc := digit_list(candidate))[0] != 1
+                and not isprime(candidate)
+                and sorted(dlc) == sorted(digit_list(int(totient(candidate))))
             ),
-        )[1],
-        time() - start,
+            key=final,
+        )
     )
