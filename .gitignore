@@ -7,7 +7,7 @@
 /.env
 
 # repl.it
-main.py
+
 .replit
 poetry.lock
 pyproject.toml
