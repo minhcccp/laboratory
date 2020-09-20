@@ -1,10 +1,12 @@
 # From: https://projecteuler.net/problem=89
-from roman_numeral import roman_encoder, roman_decoder
+from roman_numeral import encoder, decoder
 
 if __name__ == "__main__":
-    print(
-        sum(
-            len(stripped_entry) - len(roman_encoder(roman_decoder(stripped_entry)))
-            for stripped_entry in [entry.strip() for entry in open("p089_roman.txt")]
+    with open("p089_roman.txt") as roman_numerals:
+        print(
+            sum(
+                len(stripped_entry := entry.strip())
+                - len(encoder(decoder(stripped_entry)))
+                for entry in roman_numerals
+            )
         )
-    )

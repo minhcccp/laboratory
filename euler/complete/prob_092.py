@@ -1,61 +1,56 @@
-# From: https://projecteuler.net/problem=92
+"""
+Resource(s):
+https://projecteuler.net/problem=92
+
+"""
+
 from itertools import combinations_with_replacement, permutations
 from string import digits
-from typing import List, Set
+from typing import Set, Tuple
 
 from digital_function import pdi_function
 
+
+def chain_generator(
+    first_number: str, reference_set: Set[str] = None
+) -> Tuple[Set[str], str]:
+    if not reference_set:
+        reference_set = {first_number}
+    return_set: Set[str] = {first_number}
+    latest_value: str = first_number
+
+    while (
+        next_number := "".join(
+            sorted(str(pdi_function(latest_value, 2)).replace("0", ""))
+        )
+    ) not in reference_set:
+        return_set.add(latest_value := next_number)
+
+    return return_set, next_number
+
+
 if __name__ == "__main__":
-    one_set: Set[str] = {"1"}
-    eighty_nine_set: Set[str] = {"89"}
+    one: Set[str] = chain_generator("1")[0]
+    eighty_nine: Set[str] = chain_generator("89")[0]
 
+    length: int
+    possibility: Tuple[str]
     start_number: str
-    for start_number in reversed(
-        [
-            "".join(possibility)
-            for length in range(1, 8)
-            for possibility in combinations_with_replacement(digits[1:], length)
-        ]
+    for start_number in (
+        "".join(possibility)
+        for length in range(7, 0, -1)
+        for possibility in combinations_with_replacement(digits[1:], length)
     ):
-        if start_number not in one_set | eighty_nine_set:
+        union: Set[str]
+        if start_number not in (union := one.union(eighty_nine)):
+            record: Set[str]
+            hint: str
+            record, hint = chain_generator(start_number, union)
 
-            class Collection:
-                ledger: List[str]
-
-                def __init__(self, first_num: str):
-                    self.ledger = [first_num]
-                    self.next_item()
-
-                def last_item(self):
-                    return self.ledger[-1]
-
-                def next_item(self):
-                    self.ledger.append(
-                        "".join(
-                            sorted(
-                                str(
-                                    pdi_function(
-                                        int(self.last_item()), 2
-                                    )
-                                ).replace("0", "")
-                            )
-                        )
-                    )
-
-                def return_ledger(self):
-                    return self.ledger
-
-            new_collection: Collection = Collection(start_number)
-            while not (
-                (trace := new_collection.last_item() in eighty_nine_set)
-                or new_collection.last_item() in one_set
-            ):
-                new_collection.next_item()
-
-            if trace:
-                eighty_nine_set.update(new_collection.return_ledger())
+            if hint in one:
+                one.update(record)
             else:
-                one_set.update(new_collection.return_ledger())
+                eighty_nine.update(record)
 
     print(
         sum(
@@ -65,6 +60,6 @@ if __name__ == "__main__":
                     for item in permutations(number + "0" * (7 - len(number)))
                 }
             )
-            for number in eighty_nine_set
+            for number in eighty_nine
         )
     )

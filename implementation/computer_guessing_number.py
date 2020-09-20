@@ -1,4 +1,4 @@
-from script_quit import QUIT_REMINDER, quit_confirmation
+from scripts_with_inputs import QUIT_REMINDER, quit_confirmation, stop_with_goodbye
 
 if __name__ == "__main__":
     print(QUIT_REMINDER)
@@ -26,7 +26,7 @@ if __name__ == "__main__":
             if option in range(-1, 2):
                 if option == 0:
                     print(f"Hooray! The computer has guessed {number} time(s)")
-                    quit_confirmation()
+                    stop_with_goodbye()
 
                 current += option * difference
                 if difference > 1:

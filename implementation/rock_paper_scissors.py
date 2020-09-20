@@ -1,5 +1,5 @@
 # From: https://en.wikipedia.org/wiki/Rock_paper_scissors
-from script_quit import QUIT_REMINDER, quit_confirmation
+from scripts_with_inputs import QUIT_REMINDER, quit_confirmation
 
 if __name__ == "__main__":
     print(QUIT_REMINDER)

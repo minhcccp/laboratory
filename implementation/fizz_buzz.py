@@ -4,7 +4,7 @@ from typing import Dict
 from numpy import long
 from sympy.ntheory import primefactors
 
-from script_quit import quit_confirmation
+from scripts_with_inputs import quit_confirmation
 
 if __name__ == "__main__":
     max_value: long = 0

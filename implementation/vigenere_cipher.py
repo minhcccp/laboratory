@@ -3,7 +3,7 @@ from itertools import cycle
 from string import ascii_lowercase as letters
 from typing import List, Tuple
 
-from script_quit import quit_confirmation, QUIT_REMINDER
+from scripts_with_inputs import quit_confirmation, QUIT_REMINDER
 
 # Complimentary functions
 avail_mode: List[int] = [1, -1]

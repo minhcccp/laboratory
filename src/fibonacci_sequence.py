@@ -1,43 +1,45 @@
-# From: https://en.wikipedia.org/wiki/Fibonacci_number
+"""
+Resource(s):
+https://en.wikipedia.org/wiki/Fibonacci_number
+
+"""
+
 from typing import List
 
-from sympy import fibonacci, Integer
-
-from integer_class import FULL_INTEGER_CLASS
+from sympy import fibonacci
 
 
 def sequence_generator(
-    option: bool, detail: FULL_INTEGER_CLASS, unique_member: bool = True
-) -> List[FULL_INTEGER_CLASS]:
+    option: bool, detail: int, unique_member: bool = True
+) -> List[int]:
     """
-    Generate a list of Fibonacci numbers
-
     :param option: Working mode, either False or True, see explanation below
-    :param detail: Specifying either the greatest possible value (for option False) or number of values (option True)
-    :param unique_member: Default is to return nonzero unique numbers only, change to False for 0 as the starting number
-    :return: The sequence satisfying the requirements
+    :param detail: Either the greatest possible value (for option False) or number of values (option True)
+    :param unique_member: Default return nonzero unique numbers only (option True), change to False for starting from 0
+    :return: Sequence of Fibonacci numbers satisfying the requirements
     """
 
     start: int = unique_member * 2
 
     if option:
-        fibonacci_list: List[FULL_INTEGER_CLASS] = [
-            Integer(fibonacci(index + start)) for index in range(detail)
+        fibonacci_list: List[int] = [
+            int(fibonacci(index + start)) for index in range(detail)
         ]
 
     else:
         fibonacci_list = [0]
 
-        while fibonacci_list[-1] <= detail:
-            fibonacci_list.append(Integer(fibonacci(len(fibonacci_list))))
+        while (last_item := fibonacci_list[-1]) < detail:
+            fibonacci_list.append(int(fibonacci(len(fibonacci_list))))
 
-        fibonacci_list = fibonacci_list[start:-1]
+        fibonacci_list = fibonacci_list[start : (-1 if last_item > detail else None)]
 
     return fibonacci_list
 
 
 if __name__ == "__main__":
-    print(sequence_generator(False, 13))
-    print(sequence_generator(False, 14))
-    print(sequence_generator(True, 10))
-    print(sequence_generator(True, 10, False))
+    for limit in range(12, 15):
+        print(sequence_generator(False, limit, bool(limit % 2)))
+
+    for truthiness in range(2):
+        print(sequence_generator(True, 10, bool(truthiness)))

@@ -1,8 +1,13 @@
+"""
+A script containing useful constants and functions to be used for scripts with user inputs
+
+"""
+
 from sys import exit
 from time import sleep
 from typing import Union, Callable
 
-QUIT_REMINDER: str = "Type 'quit' at any time to stop the program"
+QUIT_REMINDER: str = "Type 'quit' at any time to stop the program\n"
 
 
 def stop_with_goodbye() -> None:
@@ -15,7 +20,7 @@ def stop_with_goodbye() -> None:
     exit()
 
 
-def quit_confirmation(question: str) -> Union[Callable[[], None], str]:
+def quit_confirmation(question: str) -> str:
     """
     :param question: Prompt itself
     :return: Answer for the prompt if it's not "quit", else the program will be stopped

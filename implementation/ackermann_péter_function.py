@@ -1,13 +1,10 @@
 # From: https://en.wikipedia.org/wiki/Ackermann_function
 from sys import getrecursionlimit
-from integer_class import FULL_INTEGER_CLASS
 
 from numpy import long
 
 
-def naive_approach(
-    first: FULL_INTEGER_CLASS, second: FULL_INTEGER_CLASS
-) -> FULL_INTEGER_CLASS:
+def naive_approach(first: int, second: int) -> int:
     """
 
 

@@ -2,7 +2,7 @@
 from random import randint
 from typing import List
 
-from script_quit import quit_confirmation, QUIT_REMINDER
+from scripts_with_inputs import quit_confirmation, QUIT_REMINDER
 
 
 # Complimentary function
