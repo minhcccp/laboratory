@@ -1,2 +1,4 @@
 .idea
-/pilot/
+.vscode
+*.pyc
+/.env
