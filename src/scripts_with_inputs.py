@@ -5,7 +5,6 @@ A script containing useful constants and functions to be used for scripts with u
 
 from sys import exit
 from time import sleep
-from typing import Union, Callable
 
 QUIT_REMINDER: str = "Type 'quit' at any time to stop the program\n"
 

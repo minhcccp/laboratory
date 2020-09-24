@@ -23,4 +23,3 @@ def is_happy(number: Union[int, long, Integer]) -> bool:
         return True
 
     return False
-    

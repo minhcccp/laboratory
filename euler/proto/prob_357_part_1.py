@@ -7,11 +7,12 @@ from sympy import divisors, isprime, primerange, sqrt
 if __name__ == "__main__":
 
     def the_purge(purgee: int) -> bool:
-        return not purgee % 10 in [4, 6] \
-        #        and all(
-        #     purgee % (prime ** 2) and not purgee % prime == prime - 1
-        #     for prime in primerange(3, sqrt(purgee / 2) + 1)
-        # )
+        return not purgee % 10 in [4, 6] and (
+            # all(
+            #     purgee % (prime ** 2) and not purgee % prime == prime - 1
+            #     for prime in primerange(3, sqrt(purgee / 2) + 1)
+            # )
+        )
 
     def the_main_test(testee: int) -> bool:
         def get_half(input_list: List[int]) -> List[int]:
@@ -35,4 +36,5 @@ if __name__ == "__main__":
 
     print(sum(record))
 
-    # print(sum(record + [tester for tester in range(10, int("9" * 8), 4) if the_purge(tester) and the_main_test(tester)]))
+    # print(sum(record + [tester for tester in range(10, int("9" * 8), 4) if the_purge(tester) and the_main_test(
+    # tester)]))

@@ -54,8 +54,8 @@ def fibonacci_to_decimal(fibonacci_sequence: str) -> int:
             sequence_generator(
                 True,
                 len((fibonacci_sequence := fibonacci_sequence[::-1])),
-                (int(value) for value in fibonacci_sequence),
-            )
+            ),
+            (int(value) for value in fibonacci_sequence),
         )
     )
 
