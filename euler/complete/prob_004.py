@@ -7,7 +7,7 @@ if __name__ == "__main__":
     first: int = 999
     while first >= 100:
         if not first % 11:
-            second = 999
+            second: int = 999
             delta: int = 1
 
         else:
