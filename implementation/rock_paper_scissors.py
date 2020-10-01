@@ -15,8 +15,8 @@ if __name__ == "__main__":
     while True:
         if (
             players_input := (
-                    quit_confirmation(f"What's your move, {first_name}: "),
-                    quit_confirmation(f"What's your move, {second_name}: "),
+                quit_confirmation(f"What's your move, {first_name}: "),
+                quit_confirmation(f"What's your move, {second_name}: "),
             )
         ) in (
             scenarios := [

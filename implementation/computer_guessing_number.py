@@ -6,7 +6,9 @@ if __name__ == "__main__":
     number_of_digits: int = 0
     while number_of_digits < 1:
         try:
-            number_of_digits = int(quit_confirmation("How many digit does your number have: "))
+            number_of_digits = int(
+                quit_confirmation("How many digit does your number have: ")
+            )
         except ValueError:
             continue
 

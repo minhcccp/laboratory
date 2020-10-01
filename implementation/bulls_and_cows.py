@@ -67,7 +67,9 @@ def game_controller(target: str, guess_list: List[str] = None):
     if (guess := quit_confirmation("What's your number: ")) == target:
         print(f"Congrats, you found the number with {len(guess_list) + 1} number(es)")
 
-        quit_confirmation("Type 'quit' to exit the game, or press enter to play again: ")
+        quit_confirmation(
+            "Type 'quit' to exit the game, or press enter to play again: "
+        )
         welcome()
 
     elif (

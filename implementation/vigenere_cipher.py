@@ -55,7 +55,9 @@ def setup(setup_mode: int = 0, setup_key: str = ""):
             if setup_key_char.isalpha()
         )
 
-    main_feature(setup_mode, setup_key, quit_confirmation("\nType your input message: "))
+    main_feature(
+        setup_mode, setup_key, quit_confirmation("\nType your input message: ")
+    )
 
 
 def main_feature(main_mode: int, main_key: str, main_input: str) -> str:
@@ -149,7 +151,9 @@ def result(result_key: str, result_input: str, result_output: str) -> None:
 
         print("Result saved!")
 
-    quit_confirmation("Type 'quit' to stop the program, or press enter to current again: ")
+    quit_confirmation(
+        "Type 'quit' to stop the program, or press enter to current again: "
+    )
     setup()
 
 
