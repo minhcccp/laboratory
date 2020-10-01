@@ -12,14 +12,14 @@ def vigenere_function(input_message: str, key: str, decode_mode: bool = False) -
     proto_output: List[str] = [
         letters[(input_letter + key_letter * (-1) ** decode_mode) % len(letters)]
         for input_letter, key_letter in zip(
-            [
-                letters.index(input_char.lower())
-                for input_char in input_message
+            (
+                letters.index(input_char)
+                for input_char in input_message.lower()
                 if input_char.isalpha()
-            ],
+            ),
             cycle(
-                letters.index(key_char.lower())
-                for key_char in key
+                letters.index(key_char)
+                for key_char in key.lower()
                 if key_char.isalpha()
             ),
         )

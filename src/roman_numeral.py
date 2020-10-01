@@ -94,7 +94,7 @@ if __name__ == "__main__":
     ]:
         print(
             decoder(s),
-            timeit('decoder(s)', globals=globals()),
+            timeit("decoder(s)", globals=globals()),
             "μs",
         )
 
