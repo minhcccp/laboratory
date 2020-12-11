@@ -10,3 +10,4 @@
 poetry.lock
 pyproject.toml
 /python/.env
+/java/src/junit-platform-console-standalone-1.2.0.jar
