@@ -2,12 +2,14 @@
 .idea
 
 # VS Code
-.vscode
 *.pyc
-/python/.env
+*.env
+*.code-workspace
 
 # repl.it
 .replit
 poetry.lock
 pyproject.toml
+
+# Java
 /java/src/junit-platform-console-standalone-1.2.0.jar

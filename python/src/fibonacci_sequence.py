@@ -4,31 +4,39 @@ https://en.wikipedia.org/wiki/Fibonacci_number
 
 """
 
-from typing import List
-
 from sympy import fibonacci
 
 
 def sequence_generator(
     option: bool, detail: int, unique_member: bool = True
-) -> List[int]:
+) -> list[int]:
+
     """
-    :param option: Working mode, either False or True, see explanation below
-    :param detail: Either the greatest possible value (for option False) or number of values (option True)
-    :param unique_member: Default return nonzero unique numbers only (option True), change to False for starting from 0
-    :return: Sequence of Fibonacci numbers satisfying the requirements
+    Generates the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21,...
+
+    Parameters
+    ----------
+    option : bool
+        A flag used to specify whether number of items (True) or max value of the list (False) would be used to define the list
+    detail : int
+        Argument to determine the number of items (True) or max value of the list (False)
+    unique_member : bool, optional
+        A flag used to specify whether the return list has unique numbers only, by default True
+
+    Returns
+    -------
+    list[int]
+        The list of numbers in the Fibonacci sequence satisfying the parameters
     """
 
     start: int = unique_member * 2
 
-    if option:
-        fibonacci_list: List[int] = [
-            int(fibonacci(index + start)) for index in range(detail)
-        ]
+    fibonacci_list: list[int] = (
+        [int(fibonacci(index + start)) for index in range(detail)] if option else [0]
+    )
 
-    else:
-        fibonacci_list = [0]
-
+    if not option:
+        last_item: int
         while (last_item := fibonacci_list[-1]) < detail:
             fibonacci_list.append(int(fibonacci(len(fibonacci_list))))
 
