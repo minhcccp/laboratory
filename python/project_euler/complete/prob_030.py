@@ -1,5 +1,5 @@
 # From: https://projecteuler.net/problem=30
-from digital_function import pdi_function
+from perfect_digital_invariant import pdi_function
 
 if __name__ == "__main__":
     print(

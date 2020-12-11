@@ -8,7 +8,7 @@ from itertools import combinations_with_replacement, permutations
 from string import digits
 from typing import Set, Tuple
 
-from digital_function import pdi_function
+from perfect_digital_invariant import pdi_function
 
 
 def chain_generator(

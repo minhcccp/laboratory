@@ -4,7 +4,7 @@ from typing import List, Union
 from numpy import long
 from sympy import Integer
 
-from digital_function import pdi_function
+from perfect_digital_invariant import pdi_function
 
 
 def is_happy(number: Union[int, long, Integer]) -> bool:

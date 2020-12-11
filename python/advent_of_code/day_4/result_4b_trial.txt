@@ -1,0 +1,70 @@
+
+Passport #0
+byr: 1980
+Test: True
+iyr: 2012
+Test: True
+eyr: 2030
+Test: True
+hcl: #623a2f
+Test: True
+pid: 087499704
+Test: True
+hgt: 74in
+Test: True
+ecl: grn
+Test: True
+Finally pass: True
+
+Passport #1
+byr: 1989
+Test: True
+iyr: 2014
+Test: True
+eyr: 2029
+Test: True
+hcl: #a97842
+Test: True
+pid: 896056539
+Test: True
+hgt: 165cm
+Test: True
+ecl: blu
+Test: True
+Finally pass: True
+
+Passport #2
+byr: 2001
+Test: True
+iyr: 2015
+Test: True
+eyr: 2022
+Test: True
+hcl: #888785
+Test: True
+pid: 545766238
+Test: True
+hgt: 164cm
+Test: True
+ecl: hzl
+Test: True
+Finally pass: True
+
+Passport #3
+byr: 1944
+Test: True
+iyr: 2010
+Test: True
+eyr: 2021
+Test: True
+hcl: #b6652a
+Test: True
+pid: 093154719
+Test: True
+hgt: 158cm
+Test: True
+ecl: blu
+Test: True
+Finally pass: True
+
+Total passed passports: 4

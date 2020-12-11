@@ -4,9 +4,9 @@
 # VS Code
 .vscode
 *.pyc
-/.env
 
 # repl.it
 .replit
 poetry.lock
 pyproject.toml
+/python/.env
