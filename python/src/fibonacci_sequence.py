@@ -17,9 +17,9 @@ def sequence_generator(
     Parameters
     ----------
     option : bool
-        A flag used to specify whether number of items (True) or max value of the list (False) would be used to define the list
+        A flag specifying whether number of items (True) or max number (False) would be used to define the list
     detail : int
-        Argument to determine the number of items (True) or max value of the list (False)
+        Value of either number of items (option True) or max number (False)
     unique_member : bool, optional
         A flag used to specify whether the return list has unique numbers only, by default True
 
@@ -29,13 +29,17 @@ def sequence_generator(
         The list of numbers in the Fibonacci sequence satisfying the parameters
     """
 
+    # If unique_member is True, first number has the Fibonacci index of 2
     start: int = unique_member * 2
 
-    fibonacci_list: list[int] = (
-        [int(fibonacci(index + start)) for index in range(detail)] if option else [0]
-    )
+    if option:
+        fibonacci_list: list[int] = [
+            int(fibonacci(index + start)) for index in range(detail)
+        ]
 
-    if not option:
+    else:
+        fibonacci_list = [0]
+
         last_item: int
         while (last_item := fibonacci_list[-1]) < detail:
             fibonacci_list.append(int(fibonacci(len(fibonacci_list))))
