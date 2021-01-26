@@ -15,7 +15,7 @@ def stop_with_goodbye() -> None:
     """
 
     print("Thanks for using the program, see ya! From MinhCCCP")
-    sleep(10)
+    sleep(5)
     exit()
 
 

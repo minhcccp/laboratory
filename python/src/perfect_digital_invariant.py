@@ -1,9 +1,11 @@
+# region
 """
 Resource(s):
 https://en.wikipedia.org/wiki/Perfect_digital_invariant
 https://en.wikipedia.org/wiki/Digit_sum
 
 """
+# endregion
 
 from typing import Union
 
@@ -18,12 +20,7 @@ def pdi_function(input_integer: Union[int, str], power: int = 1) -> int:
     """
 
     try:
-        return sum(
-            pow(digit, power)
-            for digit in digits(
-                input_integer if isinstance(input_integer, int) else int(input_integer)
-            )[1:]
-        )
+        return sum(pow(digit, power) for digit in digits(int(input_integer))[1:])
 
     except ValueError as result_error:
         raise ValueError("Only decimal digits are accepted") from result_error

@@ -19,7 +19,7 @@ def reptend_length(denominator: int) -> int:
     try:
         value: int
         max_prime_factor: int
-        prime_factor: int
+
         for value in divisors(
             (max_prime_factor := max(set(primefactors(denominator)).difference({2, 5})))
             - 1
