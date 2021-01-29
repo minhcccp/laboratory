@@ -1,27 +1,16 @@
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 public class Main {
   public static int persistence(long n) {
-    int result = 0;
+    int prod = 1;
 
-    while (n >= 10) {
-      result++;
-
-      int prod = 1;
-
-      for (char digit : String.valueOf(n).toCharArray()) {
-        prod *= Character.getNumericValue(digit);
-      }
-
-      n = prod;
+    for (char digit : String.valueOf(n).toCharArray()) {
+      prod *= Character.getNumericValue(digit);
     }
 
-    return result;
+    return (n <= 9 ? 0 : persistence(prod) + 1);
   }
 
   public static void main(String[] args) {
-    System.out.println();
+    System.out.println(persistence(99));
   }
 }
 
